@@ -35,5 +35,5 @@ function checkAnswer() {
 }
 
 //*******
-
+console.log(document);
 setQuestion(0);
