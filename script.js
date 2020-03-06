@@ -14,7 +14,7 @@ function createButton(answer) {
     button.innerHTML = answer.text;
     if (answer.isCorrect)
         button.setAttribute('data-isCorrect', 'true');
-    answer.addEventListener('click', element => {
+    button.addEventListener('click', element => {
         console.log('clicked', element);
     });
     document.querySelector('.answers').appendChild(button);
