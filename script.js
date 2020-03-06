@@ -18,8 +18,8 @@ function createButton(answer) {
 }
 
 function setQuestion(number) {
-    let q = document.getElementsByClassName('question');
-    let a = document.getElementsByClassName('answers');
+    let q = document.querySelector('.question');
+    let a = document.querySelector('.answers');
 
     q.innerHTML(QUESTIONS[number].question);
 
