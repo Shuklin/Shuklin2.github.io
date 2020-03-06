@@ -1,6 +1,6 @@
 const QUESTIONS = [
     {
-        question: 'Вопрос номер 1',
+        question: 'Вопрос номер 2',
         answers: [
             {isCorrect: true, text: 'Правильный вариант ответа'},
             {isCorrect: false, text: 'Не правильный вариант ответа'},
@@ -14,27 +14,29 @@ function createButton(answer) {
     button.innerHTML = answer.text;
     if (answer.isCorrect)
         button.setAttribute('data-isCorrect', 'true');
+    answer.addEventListener('click', element => {
+        console.log('clicked', element);
+    });
     document.querySelector('.answers').appendChild(button);
 }
 
 function setQuestion(number) {
     let q = document.querySelector('.question');
-    let a = document.querySelector('.answers');
-    console.log('q', q);
-
     q.innerHTML = QUESTIONS[number].question;
 
+    let a = document.querySelector('.answers');
+    a.innerHTML = '';
     QUESTIONS[number].answers.forEach(answer => {
         createButton(answer);
     })
-
-
 }
 
 function checkAnswer() {
 
 }
 
-//*******
-console.log(document);
+//*************************************************************
+//*************************************************************
+//*************************************************************
+
 setQuestion(0);
