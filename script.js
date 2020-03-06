@@ -11,7 +11,7 @@ const QUESTIONS = [
 
 function createButton(answer) {
     let button = document.createElement('BUTTON');
-    button.innerHTML(answer.text);
+    button.innerHTML = answer.text;
     if (answer.isCorrect)
         button.setAttribute('data-isCorrect', 'true');
     document.querySelector('.answers').appendChild(button);
@@ -22,7 +22,7 @@ function setQuestion(number) {
     let a = document.querySelector('.answers');
     console.log('q', q);
 
-    q.textContent(QUESTIONS[number].question);
+    q.innerHTML = QUESTIONS[number].question;
 
     QUESTIONS[number].answers.forEach(answer => {
         createButton(answer);
