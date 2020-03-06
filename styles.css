@@ -16,7 +16,7 @@ body {
     height: 100vh;
 }
 #question {
-    max-width: 80%;
+    max-width: 90%;
 }
 
 .answers {
@@ -26,5 +26,5 @@ body {
 }
 
 .btn {
-    margin-top: 19px;
+    margin-top: 12px;
 }
