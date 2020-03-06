@@ -22,7 +22,7 @@ function setQuestion(number) {
     let a = document.querySelector('.answers');
     console.log('q', q);
 
-    q.innerHTML(QUESTIONS[number].question);
+    q.textContent(QUESTIONS[number].question);
 
     QUESTIONS[number].answers.forEach(answer => {
         createButton(answer);
