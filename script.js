@@ -1,43 +1,39 @@
-function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-    };
-}
-
-function initializeClock(id, endtime) {
-    var clock = document.getElementById(id);
-    var daysSpan = clock.querySelector('.days');
-    var hoursSpan = clock.querySelector('.hours');
-    var minutesSpan = clock.querySelector('.minutes');
-    var secondsSpan = clock.querySelector('.seconds');
-
-    function updateClock() {
-        var t = getTimeRemaining(endtime);
-
-        daysSpan.innerHTML = t.days;
-        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-        if (t.total <= 0) {
-            clearInterval(timeinterval);
-        }
+const QUESTIONS = [
+    {
+        question: 'Вопрос номер 1',
+        answers: [
+            {isCorrect: true, text: 'Правильный вариант ответа'},
+            {isCorrect: false, text: 'Не правильный вариант ответа'},
+            {isCorrect: false, text: 'Левый вариант ответа'},
+        ]
     }
+];
 
-    updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
+function createButton(answer) {
+    let button = document.createElement('BUTTON');
+    button.innerHTML(answer.text);
+    if (answer.isCorrect)
+        button.setAttribute('data-isCorrect', 'true');
+    document.querySelector('.answers').appendChild(button);
 }
 
-var deadline="February 08 2020 07:49:00 GMT+0200"; //for Ukraine
-// var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000); // for endless timer
-initializeClock('countdown', deadline);
+function setQuestion(number) {
+    let q = document.getElementsByClassName('question');
+    let a = document.getElementsByClassName('answers');
 
+    q.innerHTML(QUESTIONS[number].question);
+
+    QUESTIONS[number].answers.forEach(answer => {
+        createButton(answer);
+    })
+
+
+}
+
+function checkAnswer() {
+
+}
+
+//*******
+
+setQuestion(0);
