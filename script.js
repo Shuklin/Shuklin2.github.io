@@ -20,6 +20,7 @@ function createButton(answer) {
 function setQuestion(number) {
     let q = document.querySelector('.question');
     let a = document.querySelector('.answers');
+    console.log('q', q);
 
     q.innerHTML(QUESTIONS[number].question);
 
