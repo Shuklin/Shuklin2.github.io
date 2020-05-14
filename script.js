@@ -1,7 +1,7 @@
 let url = 'http://51-zendev.gateway.lightwing.io/zenwork-login';
 let timer = 1800;
 
-showTimer(value) {
+function showTimer(value) {
   let timerContainer = document.getElementById('timerContainer');
   timerContainer.innerHtml = value;
 }
