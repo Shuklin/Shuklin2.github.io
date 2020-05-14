@@ -3,7 +3,7 @@ let timer = 1800;
 
 function showTimer(value) {
   let timerContainer = document.getElementById('timerContainer');
-  timerContainer.innerHtml = value;
+  timerContainer.innerHTML = value;
 }
 
 setInterval(()=>{
